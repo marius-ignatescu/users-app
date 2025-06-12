@@ -10,7 +10,7 @@ export const routes: Routes = [
     {
         path: 'user',
         loadComponent: () => {
-            return import ('./user/user').then((m) => m.User);
+            return import ('./user/user-list').then((m) => m.User);
         },
     },
     {
