@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    height: 100vh;
+}
+.container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.app-header {
+    padding:0px;
+}
+.app-sidebar {
+    float: left;
+    width: 15%;
+    min-width: 150px;
+    max-width: 200px;
+}
+.content {
+    float: left;
+    padding-left:0px;
+    width: 100%;
+}

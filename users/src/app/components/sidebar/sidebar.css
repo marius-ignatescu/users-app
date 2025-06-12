@@ -1,0 +1,14 @@
+nav {
+    background-color: lightgrey;
+    height: 100vh;
+    ul {
+        list-style: none;
+
+        li {
+            cursor: pointer;
+            &:hover {
+                color:#777;
+            }
+        }
+    }
+}

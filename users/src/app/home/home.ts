@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './home.css'
 })
 export class Home {
-
+  title = signal('Home');
 }

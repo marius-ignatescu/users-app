@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-contextual-navigation-bar',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './contextual-navigation-bar.css'
 })
 export class ContextualNavigationBar {
-
+  title = signal('Test');
 }
