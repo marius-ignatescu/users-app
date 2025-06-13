@@ -10,7 +10,7 @@ import { ContextualNavigationBar } from './components/contextual-navigation-bar/
     RouterOutlet,
     Header,
     Sidebar,
-    ContextualNavigationBar,],
+    ContextualNavigationBar],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

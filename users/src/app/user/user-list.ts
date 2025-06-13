@@ -3,6 +3,7 @@ import { UsersService } from '../services/users-service';
 import { UserItem } from '../model/user.type';
 import { catchError } from 'rxjs';
 import { TableComponent } from "../components/table/table";
+import { DialogService } from '../services/dialog-service';
 
 @Component({
   selector: 'app-user',
@@ -12,6 +13,7 @@ import { TableComponent } from "../components/table/table";
 })
 export class User implements OnInit {
   usersService = inject(UsersService);
+  dialogService = inject(DialogService);
   userItems = signal<Array<UserItem>>([]);
 
   headArray = [
@@ -34,6 +36,12 @@ export class User implements OnInit {
   }
 
   deleteUser(item: any) {
-    debugger;
+    this.dialogService.openConfirmationDialog('Are you sure you want to delete this user?', 'Confirmation')
+    .afterClosed().subscribe(res => {
+      if (res){
+        this.usersService.deleteUser(item);
+        // todo: call here some notification service
+      }
+    });
   }
 }

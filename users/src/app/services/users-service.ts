@@ -8,11 +8,13 @@ import { HttpClient } from '@angular/common/http';
 export class UsersService {
   http = inject(HttpClient);
 
-  getUsers()
-  {
+  constructor() { }
+
+  getUsers(){
     const url = `https://jsonplaceholder.typicode.com/users`
     return this.http.get<Array<UserItem>>(url);
   }
-  
-  constructor() { }
+
+  deleteUser(user: UserItem){
+  }
 }
