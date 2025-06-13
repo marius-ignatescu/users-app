@@ -6,7 +6,11 @@ import { ContextualNavigationBar } from './components/contextual-navigation-bar/
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Sidebar, ContextualNavigationBar],
+  imports: [
+    RouterOutlet,
+    Header,
+    Sidebar,
+    ContextualNavigationBar,],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
