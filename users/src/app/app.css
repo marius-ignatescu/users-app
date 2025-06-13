@@ -1,6 +1,6 @@
 .main-container {
     display: flex;
-    height: 100vh;
+    height: 100%;
     width:100%;
 }
 .main-container::after {
@@ -16,8 +16,8 @@
 }
 .content {
     float: left;
-    padding-left:10px;
-    padding-right:10px;
+    padding-left:15px;
+    padding-right:15px;
     width: 100%;
 }
 .wrapper {

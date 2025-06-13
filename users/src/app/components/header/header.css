@@ -1,7 +1,7 @@
 .header {
     display: flex;
     padding-inline: 10px;
-    background-color:cadetblue;
+    background-color:rgb(35, 35, 35);
     color: white;
     align-items: center;
     justify-content: space-between;
