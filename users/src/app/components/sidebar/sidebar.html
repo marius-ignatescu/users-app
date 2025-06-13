@@ -1,7 +1,15 @@
-<nav>
-    <ul>
-        <li routerLink="/">Home</li>
-        <li routerLink="/user">User</li>
-        <li routerLink="/settings">Settings</li>
-    </ul>
-</nav>
+<div class="sidenav">
+  <div class="sidenav-nav">
+    @for (item of items; track $index) {
+      <li class="sidenav-nav-item">
+        <a class="sidenav-nav-link"
+          [routerLink]="item.routeLink"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          <i class="sidenav-link-icon" [class]="item.icon"></i>
+          <span class="sidenav-link-text">{{ item.label }}</span>
+        </a>
+      </li>
+    }
+  </div>
+</div>
