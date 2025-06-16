@@ -36,7 +36,7 @@ export class User implements OnInit {
   }
 
   deleteUser(item: any) {
-    this.dialogService.openConfirmationDialog('Are you sure you want to delete this user?', 'Confirmation')
+    this.dialogService.openConfirmationDialog('Do you want to delete this user?', 'Confirmation')
     .afterClosed().subscribe(res => {
       if (res){
         this.usersService.deleteUser(item);
