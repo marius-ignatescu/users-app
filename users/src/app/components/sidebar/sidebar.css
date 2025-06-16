@@ -24,7 +24,7 @@
   display: flex;
   align-items: center;
   height: 3rem;
-  color: #d3cfcf;
+  color: #ffffff;
   text-decoration: none;
   border-radius: 0.3rem;
   transition: all 0.3s ease;
@@ -45,9 +45,10 @@
 }
 
 .active {
-  background-color: #fff;
+  color:#fff;
+  background-color: #3a8bcd;
 }
-.active .sidenav-link-icon,
+/* .active .sidenav-link-icon,
 .active .sidenav-link-text {
   color: #000;
-}
+} */

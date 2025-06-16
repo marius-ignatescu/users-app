@@ -12,19 +12,6 @@
   align-items: center;
 }
 
-.btn {
-  background-color: #444;
-  color: white;
-  border: none;
-  margin-left: 0.5rem;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.btn:hover {
-  background-color: #555;
-}
-
 .page-title {
   font-size: 1.25rem;
   font-weight: bold;

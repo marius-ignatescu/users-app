@@ -4,7 +4,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mainbackround {background-color:#1f1f1f; border-color: #767676;}
 .accent-color {background-color: #1f1f1f;}
 .btn {
-  background-color: #444;
+  background-color: #3a8bcd;
   color: white;
   border: none;
   padding: 0.4rem 0.9rem;
@@ -15,7 +15,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .btn.primary {
-  background-color: accent-color;
+  background-color: #3a8bcd;
 }
 
 .btn:hover {

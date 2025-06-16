@@ -2,8 +2,14 @@
     display: flex;
     padding-inline: 10px;
     background-color:#1f1f1f;
-    color: white;
+    color: #3a8bcd;
     align-items: center;
     justify-content: space-between;
     height: 70px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
 }
