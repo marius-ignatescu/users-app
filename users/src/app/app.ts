@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { Header } from './components/header/header';
 import { Sidebar } from './components/sidebar/sidebar';
 import { ContextualNavigationBar } from './components/contextual-navigation-bar/contextual-navigation-bar';
+import { ToastComponent } from "./shared/toast/toast";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,9 @@ import { ContextualNavigationBar } from './components/contextual-navigation-bar/
     RouterOutlet,
     Header,
     Sidebar,
-    ContextualNavigationBar],
+    ContextualNavigationBar,
+    ToastComponent
+],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

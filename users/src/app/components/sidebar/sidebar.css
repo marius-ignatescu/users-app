@@ -3,7 +3,7 @@
   top: 0;
   width: 16.5625rem;
   height: 100vh;
-  box-shadow: 0 0 1.25rem 0 #8690a3;
+  box-shadow: 0 0 1rem 0 #9b9b9b;
   clip-path: inset(0 -15px 0 0);
 }
 .sidenav-nav {

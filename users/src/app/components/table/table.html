@@ -1,6 +1,5 @@
-<div class="row">
-    <div class="col-md-12">
-        <table class="table table-bordered table-hover">
+<div class="table-container">
+  <table class="custom-table">
             <thead>
                 <tr>
                     <th *ngFor="let head of HeadArray">{{head.Head}} </th>
@@ -13,12 +12,11 @@
                             {{item[head.FieldName]}}
                         </div>
                         <div *ngIf="head.FieldName == ''" class="text-center">
-                            <button class="btn btn-sm btn-primary mainbackround" (click)="delete(item)"
+                            <button class="btn primary" (click)="delete(item)"
                                 style="margin-left: 10px;">Delete</button>
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
-    </div>
 </div>
