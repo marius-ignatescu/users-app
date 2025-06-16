@@ -1,10 +1,33 @@
-.navbar {
-    background-color:rgb(255, 255, 255);
-    color: black;
-    justify-content: space-between;
-    margin:10px;
+.sub-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top:1rem;
+  padding-bottom:1rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #cccccc;
 }
-.title{
-    color:black;
-    align-items: start;
+
+.left, .right {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  background-color: #444;
+  color: white;
+  border: none;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+.page-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color:black;
 }
