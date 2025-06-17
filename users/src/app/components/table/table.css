@@ -35,3 +35,12 @@
   text-transform: uppercase;
   letter-spacing: 0.05rem;
 }
+
+.custom-row {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.custom-row:hover {
+  background-color: #2e2e2e;
+}

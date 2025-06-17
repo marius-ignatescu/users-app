@@ -15,6 +15,7 @@ export class UserListComponent implements OnInit {
   usersService = inject(UsersService);
   dialogService = inject(DialogService);
   userItems = signal<Array<UserItem>>([]);
+  route = "/user/";
 
   headArray = [
     {'Head': 'User Name', 'FieldName': 'name' },

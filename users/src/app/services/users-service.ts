@@ -7,12 +7,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsersService {
   http = inject(HttpClient);
+  private url = `https://jsonplaceholder.typicode.com/users`
 
   constructor() { }
 
   getUsers(){
-    const url = `https://jsonplaceholder.typicode.com/users`
-    return this.http.get<Array<UserItem>>(url);
+    return this.http.get<Array<UserItem>>(this.url);
+  }
+
+  getUserByID(id: number){
+    return this.http.get(`${this.url}/${id}`);
   }
 
   deleteUser(user: UserItem){

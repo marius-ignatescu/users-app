@@ -1,6 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { DataSource } from '@angular/cdk/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table',
@@ -9,14 +9,18 @@ import { DataSource } from '@angular/cdk/table';
   styleUrl: './table.css'
 })
 export class TableComponent implements OnInit {
-  @Input() HeadArray :any[] = [];
-  @Input() GridArray :any[] = []; 
+  @Input() HeadArray: any[] = [];
+  @Input() GridArray: any[] = [];
+  @Input() Route: string = '';
   @Output() onDelete = new EventEmitter<any>();
-dataSource$: any;
-  constructor() { }
+  dataSource$: any;
+  constructor(private router: Router) { }
   ngOnInit(): void {
   }
   delete(item: any) {
     this.onDelete.emit(item);
+  }
+  showDetails(id: string): void {
+    this.router.navigate([this.Route, id]);
   }
 }

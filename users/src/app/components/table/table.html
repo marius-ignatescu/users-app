@@ -1,22 +1,21 @@
 <div class="table-container">
-  <table class="custom-table">
-            <thead>
-                <tr>
-                    <th *ngFor="let head of HeadArray">{{head.Head}} </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of GridArray;let sr=index">
-                    <td *ngFor="let head of HeadArray">
-                        <div *ngIf="head.FieldName != ''">
-                            {{item[head.FieldName]}}
-                        </div>
-                        <div *ngIf="head.FieldName == ''" class="text-center">
-                            <button class="btn primary" (click)="delete(item)"
-                                style="margin-left: 10px;">Delete</button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th *ngFor="let head of HeadArray">{{head.Head}} </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of GridArray;let sr=index" class="custom-row">
+                <td *ngFor="let head of HeadArray">
+                    <div *ngIf="head.FieldName != ''" (click)="showDetails(item.id)">
+                        {{item[head.FieldName]}}
+                    </div>
+                    <div *ngIf="head.FieldName == ''" class="text-center">
+                        <button class="btn primary" (click)="delete(item)" style="margin-left: 10px;">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
