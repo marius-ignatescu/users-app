@@ -1,3 +1,10 @@
+<app-contextual-navigation-bar>
+  <span slot="title" class="page-title">User Details</span>
+  <div slot="context">
+    <button class="btn" routerLink="/user">Back</button>
+  </div>
+</app-contextual-navigation-bar>
+
 <div class="user-details-container">
   <ng-container *ngIf="loading">
     <p>Loading user...</p>

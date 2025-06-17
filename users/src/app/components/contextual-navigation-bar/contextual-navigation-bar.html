@@ -1,29 +1,8 @@
 <nav class="sub-nav">
-    <div class="left">
-        <span slot="title" class="page-title">
-            {{ getPageTitle(currentRoute) }}
-        </span>
-    </div>
-    <div class="right">
-        <ng-container slot="context">
-            <ng-container [ngSwitch]="currentRoute">
-
-                <!-- Context menu for /users -->
-                <ng-container *ngSwitchCase="'/user'">
-                    <button class="btn">Create</button>
-                    <button class="btn">Import</button>
-                </ng-container>
-
-                <!-- Context menu for /settings -->
-                <ng-container *ngSwitchCase="'/settings'">
-                    <button class="btn">Change Password</button>
-                </ng-container>
-
-                <!-- Default case -->
-                <ng-container *ngSwitchDefault>
-                </ng-container>
-
-            </ng-container>
-        </ng-container>
-    </div>
+  <div class="page-title">
+    <ng-content select="[slot=title]"></ng-content>
+  </div>
+  <div class="right">
+    <ng-content select="[slot=context]"></ng-content>
+  </div>
 </nav>

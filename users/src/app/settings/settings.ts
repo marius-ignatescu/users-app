@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { ToastService } from '../services/toast-service';
+import { ContextualNavigationBar } from "../components/contextual-navigation-bar/contextual-navigation-bar";
 
 @Component({
   selector: 'app-settings',
-  imports: [ReactiveFormsModule, NgIf],
+  imports: [ReactiveFormsModule, NgIf, ContextualNavigationBar],
   templateUrl: './settings.html',
   styleUrl: './settings.css'
 })
