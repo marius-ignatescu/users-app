@@ -3,10 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { UsersService } from '../../services/users-service';
 import { ContextualNavigationBar } from "../../components/contextual-navigation-bar/contextual-navigation-bar";
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-user-details',
-  imports: [NgIf, ContextualNavigationBar],
+  imports: [NgIf, ContextualNavigationBar, RouterModule],
   templateUrl: './user-details.html',
   styleUrl: './user-details.css'
 })

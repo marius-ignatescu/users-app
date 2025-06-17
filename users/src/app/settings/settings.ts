@@ -3,10 +3,11 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 import { NgIf } from '@angular/common';
 import { ToastService } from '../services/toast-service';
 import { ContextualNavigationBar } from "../components/contextual-navigation-bar/contextual-navigation-bar";
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-settings',
-  imports: [ReactiveFormsModule, NgIf, ContextualNavigationBar],
+  imports: [ReactiveFormsModule, NgIf, ContextualNavigationBar, RouterModule],
   templateUrl: './settings.html',
   styleUrl: './settings.css'
 })
