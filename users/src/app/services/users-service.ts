@@ -19,6 +19,7 @@ export class UsersService {
     return this.http.get(`${this.url}/${id}`);
   }
 
-  deleteUser(user: UserItem){
+  deleteUser(id: UserItem){
+    return this.http.delete(`${this.url}/${id}`);
   }
 }

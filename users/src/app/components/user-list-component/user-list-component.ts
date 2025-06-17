@@ -4,6 +4,7 @@ import { catchError } from 'rxjs';
 import { UsersService } from '../../services/users-service';
 import { DialogService } from '../../services/dialog-service';
 import { UserItem } from '../../model/user.type';
+import { ToastService } from '../../services/toast-service';
 
 @Component({
   selector: 'app-user-list-component',
@@ -14,6 +15,7 @@ import { UserItem } from '../../model/user.type';
 export class UserListComponent implements OnInit {
   usersService = inject(UsersService);
   dialogService = inject(DialogService);
+  toastService = inject(ToastService);
   userItems = signal<Array<UserItem>>([]);
   route = "/user/";
 
@@ -40,8 +42,18 @@ export class UserListComponent implements OnInit {
     this.dialogService.openConfirmationDialog('Do you want to delete this user?', 'Confirmation')
     .afterClosed().subscribe(res => {
       if (res){
-        this.usersService.deleteUser(item);
-        // todo: call here some notification service
+        this.usersService.deleteUser(item.id).subscribe({
+          next: () => {
+            this.toastService.showSuccess('User deleted successfully!');
+
+            this.userItems.update(current =>
+              current.filter(user => user.id !== item.id)
+            );
+          },
+          error: () => {
+            this.toastService.showSuccess('Failed to delete user.');
+          }
+        });
       }
     });
   }
