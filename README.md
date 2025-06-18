@@ -34,7 +34,13 @@ git clone https://github.com/marius-ignatescu/users-app.git
 
 ### 2. Install dependencies
 ```bash
-npm install
+npm install @angular/cli
+
+# Core Angular dependencies
+npm install @angular/forms @angular/common @angular/router
+
+# Angular CDK for table and layout components
+npm install @angular/cdk
 ```
 
 ## Development server
