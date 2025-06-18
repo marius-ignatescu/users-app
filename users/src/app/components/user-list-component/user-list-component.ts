@@ -5,6 +5,7 @@ import { UsersService } from '../../services/users-service';
 import { DialogService } from '../../services/dialog-service';
 import { UserItem } from '../../model/user.type';
 import { ToastService } from '../../services/toast-service';
+import { UsersStore } from '../../store/user-store';
 
 @Component({
   selector: 'app-user-list-component',
@@ -16,7 +17,9 @@ export class UserListComponent implements OnInit {
   usersService = inject(UsersService);
   dialogService = inject(DialogService);
   toastService = inject(ToastService);
-  userItems = signal<Array<UserItem>>([]);
+  //userItems = signal<Array<UserItem>>([]);
+  store = inject(UsersStore);
+  userItems = this.store.users;
   route = "/user/";
 
   headArray = [
@@ -28,14 +31,18 @@ export class UserListComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.usersService.getUsers().pipe(
-      catchError((err) => {
-        console.log(err);
-        throw err;
-      })
-    ).subscribe((results) => {
-      this.userItems.set(results);
-    });
+    // Check if the users list is loaded so we don't override the changes (the deletion doesn't actually happens on the server)
+    if (!this.store.isLoaded()) {
+      this.usersService.getUsers().pipe(
+        catchError((err) => {
+          console.log(err);
+          throw err;
+        })
+      ).subscribe((results) => {
+        //this.userItems.set(results);
+        this.store.loadUsers(results);
+      });
+    }
   }
 
   deleteUser(item: any) {
@@ -45,10 +52,10 @@ export class UserListComponent implements OnInit {
         this.usersService.deleteUser(item.id).subscribe({
           next: () => {
             this.toastService.showSuccess('User deleted successfully!');
-
-            this.userItems.update(current =>
-              current.filter(user => user.id !== item.id)
-            );
+            this.store.removeUser(item.id);
+            // this.userItems.update(current =>
+            //   current.filter(user => user.id !== item.id)
+            // );
           },
           error: () => {
             this.toastService.showSuccess('Failed to delete user.');

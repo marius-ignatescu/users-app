@@ -29,9 +29,8 @@ export class AddUser implements OnInit {
   onSubmit(): void {
     if (this.userForm.valid) {
       const userData = this.userForm.value;
-
+      
       // TODO. Just a simulation here
-      console.log('User saved!:', userData);
       this.toast.showLoading('Saving user...');
 
       setTimeout(() => {
