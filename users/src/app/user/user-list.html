@@ -2,7 +2,7 @@
   <span slot="title" class="page-title">User Management</span>
   <div slot="context">
     <button class="btn" routerLink="/add-user">Create</button>
-    <button class="btn">Import</button>
+    <button class="btn" (click)="openFilePicker()">Import</button>
   </div>
 </app-contextual-navigation-bar>
 

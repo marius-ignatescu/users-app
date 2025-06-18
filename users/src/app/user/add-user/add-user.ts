@@ -16,7 +16,11 @@ import { UsersStore } from '../../store/user-store';
 export class AddUser implements OnInit {
   userForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private toast: ToastService, private store: UsersStore) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private toast: ToastService,
+    private store: UsersStore) { }
 
   ngOnInit(): void {
     this.userForm = this.fb.group({
