@@ -14,15 +14,24 @@
     <p class="error">{{ error }}</p>
   </ng-container>
 
-  <ng-container *ngIf="user && !loading">
-    <h2>{{ user.name }}</h2>
-    <p><strong>Username:</strong> {{ user.username }}</p>
-    <p><strong>Email:</strong> {{ user.email }}</p>
-    <p><strong>Phone:</strong> {{ user.phone }}</p>
-    <p><strong>Website:</strong> {{ user.website }}</p>
-    <p><strong>Company:</strong> {{ user.company?.name }}</p>
-    <p><strong>Street:</strong> {{ user.address?.street }}</p>
-    <p><strong>City:</strong> {{ user.address?.city }}</p>
-    <p><strong>Zip code:</strong> {{ user.address?.zipcode }}</p>
-  </ng-container>
+  <div class="table-container" *ngIf="user && !loading">
+    <cdk-table [dataSource]="userDetailsArray" class="custom-table">
+
+      <!-- Key Column -->
+      <ng-container cdkColumnDef="key">
+        <cdk-header-cell *cdkHeaderCellDef> Field </cdk-header-cell>
+        <cdk-cell *cdkCellDef="let element"> {{ element.key }} </cdk-cell>
+      </ng-container>
+
+      <!-- Value Column -->
+      <ng-container cdkColumnDef="value">
+        <cdk-header-cell *cdkHeaderCellDef> Value </cdk-header-cell>
+        <cdk-cell *cdkCellDef="let element"> {{ element.value }} </cdk-cell>
+      </ng-container>
+
+      <!-- <cdk-header-row *cdkHeaderRowDef="displayedColumns"></cdk-header-row> -->
+      <cdk-row *cdkRowDef="let row; columns: displayedColumns;"></cdk-row>
+
+    </cdk-table>
+  </div>
 </div>

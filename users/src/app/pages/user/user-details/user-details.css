@@ -1,0 +1,39 @@
+.table-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: #1f1f1f;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+  font-size: 0.95rem;
+}
+
+cdk-header-row, cdk-row {
+  display: table-row;
+}
+
+cdk-header-cell, cdk-cell {
+  display: table-cell;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #333;
+  vertical-align: middle;
+}
+
+cdk-header-cell {
+  background-color: #2a2a2a;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}
+
+cdk-header-cell:last-child,
+cdk-cell:last-child {
+  width: 100%;
+}
