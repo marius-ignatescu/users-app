@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
-import { ContextualNavigationBar } from "../../components/contextual-navigation-bar/contextual-navigation-bar";
+import { ContextualNavigationBar } from "../../../components/contextual-navigation-bar/contextual-navigation-bar";
 import { RouterModule } from '@angular/router';
-import { ToastService } from '../../services/toast-service';
-import { UsersStore } from '../../store/user-store';
+import { ToastService } from '../../../services/toast-service';
+import { UsersStore } from '../../../store/user-store';
 
 @Component({
   selector: 'app-add-user',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgIf } from '@angular/common';
-import { UsersService } from '../../services/users-service';
-import { ContextualNavigationBar } from "../../components/contextual-navigation-bar/contextual-navigation-bar";
+import { UsersService } from '../../../services/users-service';
+import { ContextualNavigationBar } from "../../../components/contextual-navigation-bar/contextual-navigation-bar";
 import { RouterModule } from '@angular/router';
 
 @Component({

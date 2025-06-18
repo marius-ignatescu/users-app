@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { UserListComponent } from "../components/user-list-component/user-list-component";
-import { ContextualNavigationBar } from "../components/contextual-navigation-bar/contextual-navigation-bar";
+import { UserListComponent } from "../../components/user-list-component/user-list-component";
+import { ContextualNavigationBar } from "../../components/contextual-navigation-bar/contextual-navigation-bar";
 import { RouterModule } from '@angular/router';
-import { ToastService } from '../services/toast-service';
-import { UsersStore } from '../store/user-store';
+import { ToastService } from '../../services/toast-service';
+import { UsersStore } from '../../store/user-store';
 
 @Component({
   selector: 'app-user',

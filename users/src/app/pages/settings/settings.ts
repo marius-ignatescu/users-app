@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgIf } from '@angular/common';
-import { ToastService } from '../services/toast-service';
-import { ContextualNavigationBar } from "../components/contextual-navigation-bar/contextual-navigation-bar";
+import { ToastService } from '../../services/toast-service';
+import { ContextualNavigationBar } from "../../components/contextual-navigation-bar/contextual-navigation-bar";
 import { RouterModule } from '@angular/router';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterLink, RouterModule } from '@angular/router';
-import { ContextualNavigationBar } from "../components/contextual-navigation-bar/contextual-navigation-bar";
+import { ContextualNavigationBar } from "../../components/contextual-navigation-bar/contextual-navigation-bar";
 
 @Component({
   selector: 'app-home',
