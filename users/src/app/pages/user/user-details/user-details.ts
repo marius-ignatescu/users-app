@@ -27,8 +27,13 @@ export class UserDetails implements OnInit{
         this.user = user;
         this.loading = false;
       },
-      error: () => {
-        this.error = 'Unable to display the user details!';
+      error: (err) => {
+        if (err.status === 404) {
+          this.error = 'User not found.';
+        } else {
+          this.error = 'Unable to display the user details!';
+        }
+
         this.loading = false;
       }
     });
