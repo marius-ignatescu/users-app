@@ -11,8 +11,8 @@
 
     <div class="form-group">
       <label>Username</label>
-      <input type="text" formControlName="username" />
-      <div *ngIf="userForm.get('username')?.touched && userForm.get('username')?.invalid" class="error">
+      <input type="text" formControlName="name" />
+      <div *ngIf="userForm.get('name')?.touched && userForm.get('name')?.invalid" class="error">
         Username is required and must be at least 3 characters.
       </div>
     </div>

@@ -5,6 +5,7 @@ import { NgIf } from '@angular/common';
 import { ContextualNavigationBar } from "../../components/contextual-navigation-bar/contextual-navigation-bar";
 import { RouterModule } from '@angular/router';
 import { ToastService } from '../../services/toast-service';
+import { UsersStore } from '../../store/user-store';
 
 @Component({
   selector: 'app-add-user',
@@ -15,11 +16,11 @@ import { ToastService } from '../../services/toast-service';
 export class AddUser implements OnInit {
   userForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private toast: ToastService) { }
+  constructor(private fb: FormBuilder, private router: Router, private toast: ToastService, private store: UsersStore) { }
 
   ngOnInit(): void {
     this.userForm = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(3)]],
+      name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.pattern(/^[0-9\-+()\s]*$/)]],
       role: ['User', Validators.required]
@@ -30,8 +31,14 @@ export class AddUser implements OnInit {
     if (this.userForm.valid) {
       const userData = this.userForm.value;
       
-      // TODO. Just a simulation here
+      const newUser = {
+        ...userData,
+        id: Math.floor(Math.random() * 1000) + 10 // Random integer id
+      };
+
+      // Just a simulation here
       this.toast.showLoading('Saving user...');
+      this.store.addUser(newUser);
 
       setTimeout(() => {
         this.toast.showSuccess('User successfully saved!');
