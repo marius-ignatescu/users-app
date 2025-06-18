@@ -4,6 +4,7 @@ import { ContextualNavigationBar } from "../../components/contextual-navigation-
 import { RouterModule } from '@angular/router';
 import { ToastService } from '../../services/toast-service';
 import { UsersStore } from '../../store/user-store';
+import { UserItem } from '../../model/user.type';
 
 @Component({
   selector: 'app-user',
@@ -42,17 +43,44 @@ export class User {
         // Validate imported file
         if (!Array.isArray(parsed)) throw new Error('Invalid JSON format');
 
-        const validUsers = parsed.filter(
-          u => u.id && u.name && u.email && u.role
-        );
+        const validUsers: UserItem[] = [];
+        const invalidUsers: { index: number; reason: string; raw: any }[] = [];
 
-        if (validUsers.length === 0) {
-          this.toast.showSuccess('No valid users found in file.');
-          return;
+        parsed.forEach((item, index) => {
+          const isValid =
+            item &&
+            typeof item.id === 'number' &&
+            typeof item.name === 'string' &&
+            typeof item.email === 'string' &&
+            typeof item.phone === 'string' &&
+            typeof item.role === 'string';
+
+          if (isValid) {
+            validUsers.push(item);
+          } else {
+            invalidUsers.push({
+              index,
+              reason: 'Missing or invalid fields',
+              raw: item
+            });
+          }
+        });
+
+        if (validUsers.length > 0) {
+          this.store.loadUsers(validUsers);
+          this.toast.showSuccess(`Imported ${validUsers.length} users.`);
         }
 
-        this.store.loadUsers(validUsers);
-        this.toast.showSuccess(`Imported ${validUsers.length} users!`);
+        if (invalidUsers.length > 0) {
+          const errorSummary = invalidUsers
+            .map(u => `Row ${u.index + 1}: ${u.reason}`)
+            .join('\n');
+          this.toast.showSuccess(
+            `${invalidUsers.length} users failed to import:\n${errorSummary}`
+          );
+          console.warn('Failed users:', invalidUsers);
+        }
+
       } catch (err) {
         this.toast.showSuccess('Failed to import users. Invalid file format.');
       }

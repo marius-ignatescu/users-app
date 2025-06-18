@@ -3,12 +3,16 @@
     "id": 101,
     "name": "Imported User 1",
     "email": "user1@gmail.com",
+    "phone": "1234567",
+    "website": "test.com",
     "role": "Admin"
   },
   {
     "id": 102,
     "name": "Imported User 2",
     "email": "user2@gmail.com",
+    "phone": "2342349823",
+    "website": "test2.com",
     "role": "User"
   }
 ]

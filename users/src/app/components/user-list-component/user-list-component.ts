@@ -3,7 +3,6 @@ import { TableComponent } from "../table/table";
 import { catchError } from 'rxjs';
 import { UsersService } from '../../services/users-service';
 import { DialogService } from '../../services/dialog-service';
-import { UserItem } from '../../model/user.type';
 import { ToastService } from '../../services/toast-service';
 import { UsersStore } from '../../store/user-store';
 
@@ -17,7 +16,6 @@ export class UserListComponent implements OnInit {
   usersService = inject(UsersService);
   dialogService = inject(DialogService);
   toastService = inject(ToastService);
-  //userItems = signal<Array<UserItem>>([]);
   store = inject(UsersStore);
   userItems = this.store.users;
   route = "/user/";
