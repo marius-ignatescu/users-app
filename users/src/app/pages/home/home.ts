@@ -1,8 +1,10 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterModule } from '@angular/router';
 import { ContextualNavigationBar } from "../../components/contextual-navigation-bar/contextual-navigation-bar";
 import { UsersStore } from '../../store/user-store';
+import { UsersService } from '../../services/users-service';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +13,13 @@ import { UsersStore } from '../../store/user-store';
   styleUrl: './home.css'
 })
 
-export class Home {
+export class Home implements OnInit{
   usersStore = inject(UsersStore);
+  usersService = inject(UsersService);
+
+  ngOnInit(): void {
+    this.loadUsers();
+  }
 
   totalUsers$ = this.usersStore.totalUsers$;
   totalCompanies$ = this.usersStore.totalCompanies$;
@@ -20,5 +27,18 @@ export class Home {
 
   companyKeys(obj: { [key: string]: number }): string[] {
     return Object.keys(obj);
+  }
+
+  loadUsers(){
+    if (!this.usersStore.isLoaded()) {
+      this.usersService.getUsers().pipe(
+        catchError((err) => {
+          console.log(err);
+          throw err;
+        })
+      ).subscribe((results) => {
+        this.usersStore.loadUsers(results);
+      });
+    }
   }
 }
