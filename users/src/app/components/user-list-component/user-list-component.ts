@@ -1,4 +1,5 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { TableComponent } from "../table/table";
 import { catchError } from 'rxjs';
 import { UsersService } from '../../services/users-service';
@@ -8,7 +9,7 @@ import { UsersStore } from '../../store/user-store';
 
 @Component({
   selector: 'app-user-list-component',
-  imports: [TableComponent],
+  imports: [TableComponent, CommonModule],
   templateUrl: './user-list-component.html',
   styleUrl: './user-list-component.css'
 })
@@ -17,7 +18,7 @@ export class UserListComponent implements OnInit {
   dialogService = inject(DialogService);
   toastService = inject(ToastService);
   store = inject(UsersStore);
-  userItems = this.store.users;
+  userItems$ = this.store.users$;
   route = "/user/";
 
   headArray = [
@@ -37,7 +38,6 @@ export class UserListComponent implements OnInit {
           throw err;
         })
       ).subscribe((results) => {
-        //this.userItems.set(results);
         this.store.loadUsers(results);
       });
     }
@@ -51,9 +51,6 @@ export class UserListComponent implements OnInit {
           next: () => {
             this.toastService.showSuccess('User deleted successfully!');
             this.store.removeUser(item.id);
-            // this.userItems.update(current =>
-            //   current.filter(user => user.id !== item.id)
-            // );
           },
           error: () => {
             this.toastService.showSuccess('Failed to delete user.');

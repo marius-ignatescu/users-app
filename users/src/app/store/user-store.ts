@@ -1,27 +1,36 @@
-import { signal, WritableSignal, computed, inject } from '@angular/core';
+import { signal, computed } from '@angular/core';
 import { UserItem } from '../model/user.type';
+import { createStore } from '@ngneat/elf';
+import { withEntities, addEntities, deleteEntities, selectAllEntities, selectEntity } from '@ngneat/elf-entities';
+import { Observable } from 'rxjs';
+
+const store = createStore(
+  { name: 'users' },
+  withEntities<UserItem>({ idKey: 'id' })
+);
 
 export class UsersStore {
-  private usersSignal: WritableSignal<UserItem[]> = signal<UserItem[]>([]);
+  users$: Observable<UserItem[]> = store.pipe(selectAllEntities());
   private loaded = signal(false);
-
-  users = computed(() => this.usersSignal());
   isLoaded = computed(() => this.loaded());
-
+  
   loadUsers(users: UserItem[]): void {
-    this.usersSignal.set(users);
+    store.update(
+      addEntities(users)
+    );
+
     this.loaded.set(true);
   }
 
   addUser(user: UserItem): void {
-    this.usersSignal.update(current => [...current, user]);
+    store.update(addEntities(user));
   }
 
   removeUser(id: number): void {
-    this.usersSignal.update(current => current.filter(u => u.id !== id));
+    store.update(deleteEntities(id));
   }
 
-  getUserById(id: number): UserItem | undefined {
-    return this.usersSignal().find(u => u.id === id);
+  getUserById$(id: number): Observable<UserItem | undefined> {
+    return store.pipe(selectEntity(id));
   }
 }
