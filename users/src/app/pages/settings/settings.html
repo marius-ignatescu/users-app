@@ -6,6 +6,30 @@
 </app-contextual-navigation-bar>
 
 <div class="settings-container">
+  <form (ngSubmit)="savePreferences()">
+    <div class="form-group">
+      <label>Language:</label>
+      <select [(ngModel)]="form.language" name="language">
+        <option value="en">English</option>
+        <option value="ro">Romana</option>
+        <option value="de">Deutsch</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Date Format:</label>
+      <select [(ngModel)]="form.dateFormat" name="dateFormat">
+        <option value="YYYY/MM/DD">YYYY/MM/DD</option>
+        <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+        <option value="MM-DD-YYYY">MM-DD-YYYY</option>
+      </select>
+    </div>
+
+    <button class="btn primary" type="submit">Save Settings</button>
+  </form>
+</div>
+
+<!-- <div class="settings-container">
   <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
 
     <div class="form-group">
@@ -41,4 +65,4 @@
 
     <button type="submit" class="btn primary">Save Settings</button>
   </form>
-</div>
+</div> -->
