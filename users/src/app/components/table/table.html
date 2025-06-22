@@ -15,9 +15,11 @@
           </div>
         </ng-container>
         <ng-container *ngIf="head.FieldName === ''">
-          <div class="text-center">
-            <button class="btn primary" (click)="delete(row)" style="margin-left: 10px;">Delete</button>
-          </div>
+            <!-- TODO: Used container here because ng-content only works for static projection. I can’t use it inside *ngFor, *cdkCellDef -->
+            <ng-container *ngIf="actionTemplate">
+                <ng-container *ngTemplateOutlet="actionTemplate; context: { $implicit: row }">
+                </ng-container>
+            </ng-container>
         </ng-container>
       </cdk-cell>
 

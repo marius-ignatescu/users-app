@@ -1,3 +1,8 @@
-<app-table [HeadArray]="headArray" [GridArray]="(userItems$ | async) || []" Route="{{route}}"
+<app-table [HeadArray]="headArray"
+    [GridArray]="(userItems$ | async) || []" Route="{{route}}"
     (onDelete)="deleteUser($event)">
+
+    <ng-template #actionTemplate let-user>
+    <button class="btn primary" (click)="deleteUser(user)">Delete</button>
+  </ng-template>
 </app-table>

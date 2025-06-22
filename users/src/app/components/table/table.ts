@@ -1,5 +1,5 @@
 import { CommonModule, NgFor, NgIf } from '@angular/common';
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, TemplateRef, ContentChild } from '@angular/core';
 import { Router } from '@angular/router';
 import {
   CdkTableModule,
@@ -20,7 +20,11 @@ export class TableComponent implements OnInit {
   @Input() HeadArray: any[] = [];
   @Input() GridArray: any[] = [];
   @Input() Route: string = '';
+  //@Input() actionTemplate!: TemplateRef<any>;
   @Output() onDelete = new EventEmitter<any>();
+  // Grab the <ng-template slot="actions"> from parent
+  @ContentChild('actionTemplate') actionTemplate!: TemplateRef<any>;
+
   dataSource$: any;
   constructor(private router: Router) { }
 

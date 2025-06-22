@@ -1,7 +1,7 @@
 import { signal, computed } from '@angular/core';
 import { UserItem } from '../model/user.type';
 import { createStore } from '@ngneat/elf';
-import { withEntities, addEntities, deleteEntities, selectAllEntities, selectEntity } from '@ngneat/elf-entities';
+import { withEntities, addEntities, deleteEntities, selectAllEntities, selectEntity, upsertEntities } from '@ngneat/elf-entities';
 import { Observable, map } from 'rxjs';
 
 const store = createStore(
@@ -39,12 +39,9 @@ export class UsersStore {
   );
 
   loadUsers(users: UserItem[]): void {
-    store.update(
-      addEntities(users)
-    );
-
-    this.loaded.set(true);
-  }
+  store.update(upsertEntities(users));
+  this.loaded.set(true);
+}
 
   addUser(user: UserItem): void {
     store.update(addEntities(user));

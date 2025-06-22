@@ -36,6 +36,7 @@ export class GlobalErrorHandlerService implements ErrorHandler {
       this.logErrorService.logError(this.logError);
       //this.router.navigate(['/error-page']);
 
+      //console.error('Error:', error);
       this.displayError(this.logError);
     });
   }
