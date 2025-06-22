@@ -39,8 +39,8 @@ export class UsersStore {
   );
 
   loadUsers(users: UserItem[]): void {
-  store.update(upsertEntities(users));
-  this.loaded.set(true);
+    store.update(upsertEntities(users));
+    this.loaded.set(true);
 }
 
   addUser(user: UserItem): void {
