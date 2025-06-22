@@ -1,15 +1,5 @@
 <div class="sidenav">
   <div class="sidenav-nav accent-color">
-    @for (item of items; track $index) {
-      <li class="sidenav-nav-item">
-        <a class="sidenav-nav-link"
-          [routerLink]="item.routeLink"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }">
-          <i class="sidenav-link-icon" [class]="item.icon"></i>
-          <span class="sidenav-link-text">{{ item.label }}</span>
-        </a>
-      </li>
-    }
+    <ng-content></ng-content>
   </div>
 </div>

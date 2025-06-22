@@ -3,7 +3,28 @@
 </div>
 <div class="main-container">
   <div class="app-sidebar">
-    <app-sidebar></app-sidebar>
+    <app-sidebar>
+      <li class="sidenav-nav-item">
+        <a class="sidenav-nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <i class="fal fa-home sidenav-link-icon"></i>
+          <span class="sidenav-link-text">Home</span>
+        </a>
+      </li>
+
+      <li class="sidenav-nav-item">
+        <a class="sidenav-nav-link" routerLink="/user" routerLinkActive="active">
+          <i class="fal fa-user sidenav-link-icon"></i>
+          <span class="sidenav-link-text">User</span>
+        </a>
+      </li>
+
+      <li class="sidenav-nav-item">
+        <a class="sidenav-nav-link" routerLink="/settings" routerLinkActive="active">
+          <i class="fal fa-cog sidenav-link-icon"></i>
+          <span class="sidenav-link-text">Settings</span>
+        </a>
+      </li>
+    </app-sidebar>
   </div>
   <div class="content">
     <app-toast></app-toast>
