@@ -1,21 +1,30 @@
-<div class="table-container">
-    <table class="custom-table">
-        <thead>
-            <tr>
-                <th *ngFor="let head of HeadArray">{{head.Head}} </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of GridArray;let sr=index" class="custom-row">
-                <td *ngFor="let head of HeadArray">
-                    <div *ngIf="head.FieldName != ''" (click)="showDetails(item.id)">
-                        {{item[head.FieldName]}}
-                    </div>
-                    <div *ngIf="head.FieldName == ''" class="text-center">
-                        <button class="btn primary" (click)="delete(item)" style="margin-left: 10px;">Delete</button>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div class="table-container" *ngIf="GridArray && HeadArray">
+  <cdk-table [dataSource]="GridArray" class="custom-table" [trackBy]="trackById">
+
+    <!-- Dynamic Columns -->
+    <ng-container *ngFor="let head of HeadArray" [cdkColumnDef]="head.FieldName || 'actions'">
+      
+      <cdk-header-cell *cdkHeaderCellDef class="cdk-header-cell">
+        {{ head.Head }}
+      </cdk-header-cell>
+
+      <cdk-cell *cdkCellDef="let row" class="cdk-cell">
+        <ng-container *ngIf="head.FieldName !== ''">
+          <div (click)="showDetails(row.id)">
+            {{ row[head.FieldName] }}
+          </div>
+        </ng-container>
+        <ng-container *ngIf="head.FieldName === ''">
+          <div class="text-center">
+            <button class="btn primary" (click)="delete(row)" style="margin-left: 10px;">Delete</button>
+          </div>
+        </ng-container>
+      </cdk-cell>
+
+    </ng-container>
+
+    <cdk-header-row *cdkHeaderRowDef="displayedColumns" class="cdk-header-row custom-header"></cdk-header-row>
+    <cdk-row *cdkRowDef="let row; columns: displayedColumns;" class="cdk-row custom-row"></cdk-row>
+
+  </cdk-table>
 </div>

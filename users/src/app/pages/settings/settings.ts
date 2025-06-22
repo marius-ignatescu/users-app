@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
-import { NgIf } from '@angular/common';
 import { ToastService } from '../../services/toast-service';
 import { ContextualNavigationBar } from "../../components/contextual-navigation-bar/contextual-navigation-bar";
 import { RouterModule } from '@angular/router';
@@ -9,7 +8,7 @@ import { AppSettings } from '../../model/appsettings';
 
 @Component({
   selector: 'app-settings',
-  imports: [ReactiveFormsModule, NgIf, ContextualNavigationBar, RouterModule, FormsModule],
+  imports: [ReactiveFormsModule, ContextualNavigationBar, RouterModule, FormsModule],
   templateUrl: './settings.html',
   styleUrl: './settings.css'
 })
