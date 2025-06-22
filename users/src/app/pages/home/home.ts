@@ -1,14 +1,14 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterModule } from '@angular/router';
 import { ContextualNavigationBar } from "../../components/contextual-navigation-bar/contextual-navigation-bar";
 import { UsersStore } from '../../store/user-store';
 import { UsersService } from '../../services/users-service';
 import { catchError } from 'rxjs';
+import { DashboardCard } from '../../components/dashboard-card/dashboard-card';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, RouterModule, ContextualNavigationBar, CommonModule],
+  imports: [ContextualNavigationBar, CommonModule, DashboardCard],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })

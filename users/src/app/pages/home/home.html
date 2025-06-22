@@ -2,24 +2,23 @@
   <span slot="title" class="page-title">Dashboard</span>
 </app-contextual-navigation-bar>
 
-<div class="dashboard-container">
-  <div class="dashboard-grid">
-    <a class="card" routerLink="/user">
-      <h3>Total users</h3>
-      <p class="card-value">{{ totalUsers$ | async }}</p>
-    </a>
-    <a class="card" routerLink="/user">
-      <h3>Total companies</h3>
-      <p class="card-value">{{ totalCompanies$ | async }}</p>
-    </a>
-  </div>
+<div class="dashboard-grid">
+  <app-dashboard-card routerLink="/user">
+    <span card-title>Total Users</span>
+    <span card-value>{{ totalUsers$ | async }}</span>
+  </app-dashboard-card>
 
-  <div class="section">
-    <h3>Users Per Company</h3>
-    <ul *ngIf="usersPerCompany$ | async as companyCounts">
-      <li *ngFor="let company of companyKeys(companyCounts)">
-        <strong>{{ company }}:</strong> {{ companyCounts[company] }} user(s)
-      </li>
-    </ul>
-  </div>
+  <app-dashboard-card routerLink="/user">
+    <span card-title>Total Companies</span>
+    <span card-value>{{ totalCompanies$ | async }}</span>
+  </app-dashboard-card>
+
+  <app-dashboard-card>
+    <span card-title>Users per Company</span>
+    <div card-value class="card-value card-value-small">
+      <ng-container *ngFor="let entry of usersPerCompany$ | async | keyvalue">
+        <div>{{ entry.key }}: {{ entry.value }}</div>
+      </ng-container>
+    </div>
+  </app-dashboard-card>
 </div>
