@@ -5,5 +5,7 @@
   "TOTALUSERS": "Total Users",
   "TOTALCOMPANIES": "Total Companies",
   "USERSPERCOMPANY": "Users per Company",
-  "USERMANAGEMENT": "User Management"
+  "USERMANAGEMENT": "User Management",
+  "CREATE": "Create",
+  "IMPORT": "Import"
 }

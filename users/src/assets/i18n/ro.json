@@ -5,5 +5,7 @@
   "TOTALUSERS": "Total utilizatori",
   "TOTALCOMPANIES": "Total companii",
   "USERSPERCOMPANY": "Users per Company",
-  "USERMANAGEMENT": "Administrare utilizatori"
+  "USERMANAGEMENT": "Administrare utilizatori",
+  "CREATE": "Adauga",
+  "IMPORT": "Importa"
 }
