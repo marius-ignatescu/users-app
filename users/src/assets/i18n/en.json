@@ -7,5 +7,8 @@
   "USERSPERCOMPANY": "Users per Company",
   "USERMANAGEMENT": "User Management",
   "CREATE": "Create",
-  "IMPORT": "Import"
+  "IMPORT": "Import",
+  "LANGUAGE": "Language:",
+  "DATEFORMAT": "Date format:",
+  "SAVESETTINGS": "Save settings"
 }

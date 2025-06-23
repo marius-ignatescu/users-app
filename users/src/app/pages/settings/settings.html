@@ -8,7 +8,7 @@
 <div class="settings-container">
   <form (ngSubmit)="savePreferences()">
     <div class="form-group">
-      <label>Language:</label>
+      <label>{{ 'LANGUAGE' | translate }}</label>
       <select [(ngModel)]="form.language" name="language">
         <option value="en">English</option>
         <option value="ro">Romana</option>
@@ -17,7 +17,7 @@
     </div>
 
     <div class="form-group">
-      <label>Date Format:</label>
+      <label>{{ 'DATEFORMAT' | translate }}</label>
       <select [(ngModel)]="form.dateFormat" name="dateFormat">
         <option value="YYYY/MM/DD">YYYY/MM/DD</option>
         <option value="DD/MM/YYYY">DD/MM/YYYY</option>
@@ -25,7 +25,7 @@
       </select>
     </div>
 
-    <button class="btn primary" type="submit">Save Settings</button>
+    <button class="btn primary" type="submit">{{ 'SAVESETTINGS' | translate }}</button>
   </form>
 </div>
 
