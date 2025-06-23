@@ -42,6 +42,9 @@ npm install @angular/forms @angular/common @angular/router
 
 # Angular CDK for table and layout components
 npm install @angular/cdk
+
+# Elf dependencies
+npm install @ngneat/elf @ngneat/elf-entities
 ```
 
 ## Development server
