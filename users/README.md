@@ -45,6 +45,9 @@ npm install @angular/cdk
 
 # Elf dependencies
 npm install @ngneat/elf @ngneat/elf-entities
+
+# Language support
+npm install @ngx-translate/core @ngx-translate/http-loader
 ```
 
 ## Development server
