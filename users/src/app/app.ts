@@ -40,10 +40,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     //const lang = localStorage.getItem('language') || 'en';
     this.translate.setDefaultLang('en');
-    this.translate.use('en').subscribe(() => {
-      this.translate.get('TITLE').subscribe(val => {
-        console.log('✅ TITLE =', val);
-      });
-    });
+    this.translate.use('en');
   }
 }

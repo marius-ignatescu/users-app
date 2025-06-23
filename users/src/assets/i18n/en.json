@@ -10,5 +10,6 @@
   "IMPORT": "Import",
   "LANGUAGE": "Language:",
   "DATEFORMAT": "Date format:",
-  "SAVESETTINGS": "Save settings"
+  "SAVESETTINGS": "Save settings",
+  "DASHBOARD": "Dashboard"
 }
