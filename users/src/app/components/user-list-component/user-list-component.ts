@@ -6,10 +6,11 @@ import { UsersService } from '../../services/users-service';
 import { DialogService } from '../../services/dialog-service';
 import { ToastService } from '../../services/toast-service';
 import { UsersStore } from '../../store/user-store';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-user-list-component',
-  imports: [TableComponent, CommonModule],
+  imports: [TableComponent, CommonModule, TranslateModule],
   templateUrl: './user-list-component.html',
   styleUrl: './user-list-component.css'
 })

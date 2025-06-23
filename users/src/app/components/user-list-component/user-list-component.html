@@ -3,6 +3,6 @@
     (onDelete)="deleteUser($event)">
 
     <ng-template #actionTemplate let-user>
-    <button class="btn primary" (click)="deleteUser(user)">Delete</button>
+    <button class="btn primary" (click)="deleteUser(user)">{{ 'DELETE' | translate }}</button>
   </ng-template>
 </app-table>

@@ -11,5 +11,6 @@
   "LANGUAGE": "Language:",
   "DATEFORMAT": "Date format:",
   "SAVESETTINGS": "Save settings",
-  "DASHBOARD": "Dashboard"
+  "DASHBOARD": "Dashboard",
+  "DELETE": "Delete"
 }

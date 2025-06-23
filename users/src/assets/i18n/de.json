@@ -11,5 +11,6 @@
   "LANGUAGE": "Sprache:",
   "DATEFORMAT": "Datumsformat:",
   "SAVESETTINGS": "Einstellungen speichern",
-  "DASHBOARD": "Armaturenbrett"
+  "DASHBOARD": "Armaturenbrett",
+  "DELETE": "Loschen"
 }
