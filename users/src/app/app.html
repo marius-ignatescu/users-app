@@ -7,21 +7,21 @@
       <li class="sidenav-nav-item">
         <a class="sidenav-nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <i class="fal fa-home sidenav-link-icon"></i>
-          <span class="sidenav-link-text">Home</span>
+          <span class="sidenav-link-text">{{ 'HOME' | translate }}</span>
         </a>
       </li>
 
       <li class="sidenav-nav-item">
         <a class="sidenav-nav-link" routerLink="/user" routerLinkActive="active">
           <i class="fal fa-user sidenav-link-icon"></i>
-          <span class="sidenav-link-text">User</span>
+          <span class="sidenav-link-text">{{ 'USER' | translate }}</span>
         </a>
       </li>
 
       <li class="sidenav-nav-item">
         <a class="sidenav-nav-link" routerLink="/settings" routerLinkActive="active">
           <i class="fal fa-cog sidenav-link-icon"></i>
-          <span class="sidenav-link-text">Settings</span>
+          <span class="sidenav-link-text">{{ 'SETTINGS' | translate }}</span>
         </a>
       </li>
     </app-sidebar>
