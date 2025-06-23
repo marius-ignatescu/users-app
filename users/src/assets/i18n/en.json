@@ -1,5 +1,9 @@
 {
   "HOME": "Home",
   "USER": "User",
-  "SETTINGS": "Settings"
+  "SETTINGS": "Settings",
+  "TOTALUSERS": "Total Users",
+  "TOTALCOMPANIES": "Total Companies",
+  "USERSPERCOMPANY": "Users per Company",
+  "USERMANAGEMENT": "User Management"
 }

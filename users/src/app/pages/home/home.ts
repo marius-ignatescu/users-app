@@ -5,10 +5,11 @@ import { UsersStore } from '../../store/user-store';
 import { UsersService } from '../../services/users-service';
 import { catchError } from 'rxjs';
 import { DashboardCard } from '../../components/dashboard-card/dashboard-card';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
-  imports: [ContextualNavigationBar, CommonModule, DashboardCard],
+  imports: [ContextualNavigationBar, CommonModule, DashboardCard, TranslateModule],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })

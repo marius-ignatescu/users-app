@@ -5,10 +5,11 @@ import { RouterModule } from '@angular/router';
 import { ToastService } from '../../services/toast-service';
 import { UsersStore } from '../../store/user-store';
 import { UserItem } from '../../model/user.type';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-user',
-  imports: [UserListComponent, ContextualNavigationBar, RouterModule],
+  imports: [UserListComponent, ContextualNavigationBar, RouterModule, TranslateModule],
   templateUrl: './user-list.html',
   styleUrl: './user-list.css'
 })

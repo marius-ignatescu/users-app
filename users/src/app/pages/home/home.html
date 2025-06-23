@@ -4,17 +4,17 @@
 
 <div class="dashboard-grid">
   <app-dashboard-card routerLink="/user">
-    <span card-title>Total Users</span>
+    <span card-title>{{ 'TOTALUSERS' | translate }}</span>
     <span card-value>{{ totalUsers$ | async }}</span>
   </app-dashboard-card>
 
   <app-dashboard-card routerLink="/user">
-    <span card-title>Total Companies</span>
+    <span card-title>{{ 'TOTALCOMPANIES' | translate }}</span>
     <span card-value>{{ totalCompanies$ | async }}</span>
   </app-dashboard-card>
 
   <app-dashboard-card>
-    <span card-title>Users per Company</span>
+    <span card-title>{{ 'USERSPERCOMPANY' | translate }}</span>
     <div card-value class="card-value card-value-small">
       <ng-container *ngFor="let entry of usersPerCompany$ | async | keyvalue">
         <div>{{ entry.key }}: {{ entry.value }}</div>

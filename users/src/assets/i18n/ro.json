@@ -1,5 +1,9 @@
 {
   "HOME": "Acasa",
   "USER": "Utilizatori",
-  "SETTINGS": "Setari"
+  "SETTINGS": "Setari",
+  "TOTALUSERS": "Total utilizatori",
+  "TOTALCOMPANIES": "Total companii",
+  "USERSPERCOMPANY": "Users per Company",
+  "USERMANAGEMENT": "Administrare utilizatori"
 }

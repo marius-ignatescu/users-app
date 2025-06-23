@@ -5,10 +5,11 @@ import { ContextualNavigationBar } from "../../components/contextual-navigation-
 import { RouterModule } from '@angular/router';
 import { SettingsService } from '../../services/settings-service';
 import { AppSettings } from '../../model/appsettings';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-settings',
-  imports: [ReactiveFormsModule, ContextualNavigationBar, RouterModule, FormsModule],
+  imports: [ReactiveFormsModule, ContextualNavigationBar, RouterModule, FormsModule, TranslateModule],
   templateUrl: './settings.html',
   styleUrl: './settings.css'
 })
